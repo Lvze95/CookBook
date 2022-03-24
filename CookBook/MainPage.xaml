@@ -3,29 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookBook.MainPage">
 
-    <Grid BackgroundColor="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="188"/>
-            <RowDefinition Height="188"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="94"/>
-            <ColumnDefinition Width="94"/>
-            <ColumnDefinition Width="94"/>
-            <ColumnDefinition Width="94"/>
-        </Grid.ColumnDefinitions>
-        <Frame
+    <ScrollView>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="188"/>
+                <RowDefinition Height="188"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="94"/>
+                <ColumnDefinition Width="94"/>
+                <ColumnDefinition Width="94"/>
+                <ColumnDefinition Width="94"/>
+            </Grid.ColumnDefinitions>
+            <Frame
             BackgroundColor="LightSeaGreen"
             Grid.Column="0"
             Grid.ColumnSpan="3"
             Grid.Row="0"
             Margin="10,10,5,5"
             CornerRadius="10">
-            <Label Text="Cheat Day" FontSize="40" TextColor="White"/>
-        </Frame>
-        <Button
+                <Label Text="Cheat Day" FontSize="40" TextColor="White"/>
+            </Frame>
+            <Button
             Grid.Row="0"
             Grid.Column="3"
             BackgroundColor="white"
@@ -33,7 +34,7 @@
             ImageSource="slider"
             CornerRadius="10"/>
 
-        <Button 
+            <Button 
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -42,10 +43,9 @@
             FontSize="25"
             CornerRadius="10"
             TextColor="White"
-            Background="gray">
-        </Button>
-
-        <Button
+            Background="lightgray">
+            </Button>
+            <Button
             Grid.Row="1"
             Grid.Column="2"
             Grid.ColumnSpan="2"
@@ -55,8 +55,8 @@
             Margin="0,0,10,0"
             CornerRadius="10"
             TextColor="White"
-            Background="gray"/>
-        <Button
+            Background="lightgray"/>
+            <Button
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -66,8 +66,8 @@
             Margin="10,0,0,0"
             CornerRadius="10"
             TextColor="White"
-            Background="gray"/>
-        <Button
+            Background="lightgray"/>
+            <Button
             Grid.Row="2"
             Grid.Column="2"
             Grid.ColumnSpan="2"
@@ -77,14 +77,15 @@
             Margin="0,0,10,0"
             CornerRadius="10"
             TextColor="White"
-            Background="gray"/>
-        <StackLayout
+            Background="lightgray"/>
+            <StackLayout
             Grid.Column="0"
             Grid.Row="3"
             Grid.ColumnSpan="4"
             VerticalOptions="End">
-            <Label Text="By Error 404" TextColor="DarkSlateGray" FontSize="20" HorizontalTextAlignment="Center"/>
-        </StackLayout>
-    </Grid>
+                <Label Text="By Error 404" TextColor="DarkSlateGray" FontSize="20" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 
 </ContentPage>
