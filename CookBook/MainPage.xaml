@@ -24,7 +24,7 @@
             Grid.Row="0"
             Margin="10,10,5,5"
             CornerRadius="10">
-                <Label Text="Cheat Day" FontSize="40" TextColor="White"/>
+                <Label Text="Cheat Day" FontSize="30" TextColor="White"/>
             </Frame>
             <Button
             Grid.Row="0"
