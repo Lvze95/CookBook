@@ -18,19 +18,20 @@
                 <ColumnDefinition Width="94"/>
             </Grid.ColumnDefinitions>
             <Frame
-            BackgroundColor="LightSeaGreen"
+            BackgroundColor="MediumPurple"
             Grid.Column="0"
             Grid.ColumnSpan="3"
             Grid.Row="0"
-            Margin="10,10,5,5"
-            CornerRadius="10">
+            Margin="10,20,0,30"
+            CornerRadius="10"
+            Padding="10">
                 <Label Text="Cheat Day" FontSize="30" TextColor="White"/>
             </Frame>
             <Button
             Grid.Row="0"
             Grid.Column="3"
             BackgroundColor="white"
-            Margin="5, 10, 15, 5"
+            Margin="0, 20, 15, 30"
             ImageSource="slider"
             CornerRadius="10"/>
 
@@ -43,8 +44,8 @@
             FontSize="25"
             CornerRadius="10"
             TextColor="White"
-            Background="lightgray">
-            </Button>
+            Background="LightSeaGreen"/>
+
             <Button
             Grid.Row="1"
             Grid.Column="2"
@@ -55,7 +56,7 @@
             Margin="0,0,10,0"
             CornerRadius="10"
             TextColor="White"
-            Background="lightgray"/>
+            Background="LightSeaGreen"/>
             <Button
             Grid.Row="2"
             Grid.Column="0"
@@ -66,7 +67,7 @@
             Margin="10,0,0,0"
             CornerRadius="10"
             TextColor="White"
-            Background="lightgray"/>
+            BackgroundColor="LightSeaGreen"/>
             <Button
             Grid.Row="2"
             Grid.Column="2"
@@ -77,7 +78,7 @@
             Margin="0,0,10,0"
             CornerRadius="10"
             TextColor="White"
-            Background="lightgray"/>
+            Background="LightSeaGreen"/>
             <StackLayout
             Grid.Column="0"
             Grid.Row="3"
