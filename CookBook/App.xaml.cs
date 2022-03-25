@@ -16,7 +16,7 @@ namespace CookBook
             InitializeComponent();
             SetupServices();
 
-            MainPage = new MainPage(){ BindingContext = Locator.MainViewModel };
+            MainPage = new NavigationPage(new MainPage(){ BindingContext = Locator.MainViewModel });
         }
 
         internal static ViewModelLocator Locator
@@ -47,7 +47,8 @@ namespace CookBook
         private void SetupServices()
         {
             var serviceCollection = new ServiceCollection();
-            serviceCollection.AddTransient<MainViewModel>();            
+            serviceCollection.AddTransient<MainViewModel>();
+            serviceCollection.AddSingleton<INavigationService, NavigationService>();
             _serviceProvider = serviceCollection.BuildServiceProvider();
         }
     }

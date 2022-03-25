@@ -1,4 +1,5 @@
 ﻿using CookBook.ViewModels;
+using CookBook.Views;
 using System;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,9 @@ namespace CookBook.Services
 
         public MainViewModel MainViewModel
             => _serviceProvider.GetService<MainViewModel>();
+
+        public testPage testPage
+            => _serviceProvider.GetService<testPage>();
 
     }
 }
