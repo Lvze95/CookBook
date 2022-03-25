@@ -63,9 +63,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Font.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <EmbeddedResource Include="Resources\Fonts\New.ttf" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -218,5 +220,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
