@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace CookBook.ViewModels
 {
     internal class MainViewModel : BaseViewModel
     {
+
         private readonly INavigationService _navigationService;
 
         private string _labelText;
@@ -24,6 +26,7 @@ namespace CookBook.ViewModels
             SnacksClicked = new Command(OnSnacksClicked);
         }
 
+        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
         public ICommand BreakfastClicked { get; }
         public ICommand LunchClicked { get; }
         public ICommand DinnerClicked { get; }
