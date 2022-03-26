@@ -89,7 +89,25 @@
             Grid.Row="3"
             Grid.ColumnSpan="4"
             VerticalOptions="End">
-                <Label Text="By Error 404" TextColor="DarkSlateGray" FontSize="20" HorizontalTextAlignment="Center"/>
+                <Label Text="By Error 404" TextColor="DarkSlateGray" FontSize="20" HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="By "
+                                  TextColor="DarkSlateGray"
+                                  FontSize="20"
+                                  />
+                            <Span Text="Error 404"
+                                  TextColor="Blue"
+                                  FontSize="20"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                                  CommandParameter="https://error404team.000webhostapp.com/"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
             </StackLayout>
         </Grid>
     </ScrollView>

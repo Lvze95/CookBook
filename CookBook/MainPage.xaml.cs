@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace CookBook
@@ -13,6 +15,9 @@ namespace CookBook
         public MainPage()
         {
             InitializeComponent();
+         
         }
+
+
     }
 }
