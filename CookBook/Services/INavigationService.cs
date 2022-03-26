@@ -6,6 +6,10 @@ namespace CookBook.Services
 {
     internal interface INavigationService
     {
-        void NavigateToTestPage();
+        void NavigateToBreakfast();
+        void NavigateToLunch();
+        void NavigateToDinner();
+        void NavigateToSnacks();
+
     }
 }

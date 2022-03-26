@@ -44,8 +44,7 @@
             FontSize="25"
             CornerRadius="10"
             TextColor="White"
-            Background="LightSeaGreen"/>
-            FontSize="25"
+            Background="LightSeaGreen"
             Command="{Binding BreakfastClicked}">
         </Button>
 
@@ -59,18 +58,20 @@
             Margin="0,0,10,0"
             CornerRadius="10"
             TextColor="White"
-            Background="LightSeaGreen"/>
+            Background="LightSeaGreen"
+            Command="{Binding LunchClicked}"/>
             <Button
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             ImageSource=""
-            Text="Sneaks"
+            Text="Snacks"
             FontSize="25"
             Margin="10,0,0,0"
             CornerRadius="10"
             TextColor="White"
-            BackgroundColor="LightSeaGreen"/>
+            BackgroundColor="LightSeaGreen"
+            Command="{Binding SnacksClicked}"/>
             <Button
             Grid.Row="2"
             Grid.Column="2"
@@ -81,7 +82,8 @@
             Margin="0,0,10,0"
             CornerRadius="10"
             TextColor="White"
-            Background="LightSeaGreen"/>
+            Background="LightSeaGreen"
+            Command="{Binding DinnerClicked}"/>
             <StackLayout
             Grid.Column="0"
             Grid.Row="3"

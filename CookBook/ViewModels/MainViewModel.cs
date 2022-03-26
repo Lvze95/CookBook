@@ -13,16 +13,22 @@ namespace CookBook.ViewModels
 
         private string _labelText;
 
-
         public MainViewModel(INavigationService navigation)
         {
             _navigationService = navigation;
             _labelText = "Let's test this :D";
 
             BreakfastClicked = new Command(OnBreakfastClicked);
+            LunchClicked = new Command(OnLunchClicked);
+            DinnerClicked = new Command(OnDinnerClicked);
+            SnacksClicked = new Command(OnSnacksClicked);
         }
 
         public ICommand BreakfastClicked { get; }
+        public ICommand LunchClicked { get; }
+        public ICommand DinnerClicked { get; }
+        public ICommand SnacksClicked { get; }
+
 
         public string LabelText 
         { 
@@ -38,8 +44,22 @@ namespace CookBook.ViewModels
         }
         private void OnBreakfastClicked()
         {
-            _navigationService.NavigateToTestPage();
+            _navigationService.NavigateToBreakfast();
         }
 
+        private void OnLunchClicked()
+        {
+            _navigationService.NavigateToLunch();
+        }
+
+        private void OnDinnerClicked()
+        {
+            _navigationService.NavigateToDinner();
+        }
+
+        private void OnSnacksClicked()
+        {
+            _navigationService.NavigateToSnacks();
+        }
     }
 }
