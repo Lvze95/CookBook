@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CookBook.ViewModels" x:DataType="viewmodels:MainViewModel"
-             x:Class="CookBook.MainPage"
-             NavigationPage.HasNavigationBar="False">
-
-    <ScrollView>
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookBook.Views.Page1">
+    <ContentPage.Content>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -18,6 +16,7 @@
                 <ColumnDefinition Width="94"/>
                 <ColumnDefinition Width="94"/>
             </Grid.ColumnDefinitions>
+
             <Label Grid.Row="0" 
                    Grid.Column="0" 
                    Grid.ColumnSpan="3" 
@@ -60,42 +59,65 @@
                 <Label Text="Breakfast" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
             </StackLayout>
 
-            <Button
-            Grid.Row="1"
+            <StackLayout
+                Grid.Row="1"
             Grid.Column="2"
             Grid.ColumnSpan="2"
-            ImageSource=""
-            Text="Lunch"
-            FontSize="25"
+                HeightRequest="188">
+                <ImageButton
             Margin="0,0,10,0"
             CornerRadius="10"
-            TextColor="White"
-            Background="LightSeaGreen"
-            Command="{Binding LunchClicked}"/>
-            <Button
-            Grid.Row="2"
+            Background="white"
+            Command="{Binding LunchClicked}"
+            Source="rucak"
+            Padding="0"
+            Opacity="1"
+            Aspect="AspectFill"
+            VerticalOptions="FillAndExpand"/>
+
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                VerticalOptions="End"
+                Background="green"
+                Opacity="0.8"
+                Margin="0,0,10,0">
+                <Label Text="Lunch" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="2"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
-            ImageSource=""
-            Text="Snacks"
-            FontSize="25"
+            Grid.ColumnSpan="2">
+                <ImageButton
             Margin="10,0,0,0"
             CornerRadius="10"
-            TextColor="White"
-            BackgroundColor="LightSeaGreen"
-            Command="{Binding SnacksClicked}"/>
-            <Button
-            Grid.Row="2"
+            BackgroundColor="White"
+            Command="{Binding SnacksClicked}"
+            Source="keks"
+            Padding="0"
+            Opacity="0.9"
+            Aspect="AspectFill"
+                VerticalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <StackLayout
+                            Grid.Row="2"
             Grid.Column="2"
-            Grid.ColumnSpan="2"
-            ImageSource=""
-            Text="Dinner"
-            FontSize="25"
+            Grid.ColumnSpan="2">
+                <ImageButton
             Margin="0,0,10,0"
             CornerRadius="10"
-            TextColor="White"
-            Background="LightSeaGreen"
-            Command="{Binding DinnerClicked}"/>
+            Background="white"
+            Command="{Binding DinnerClicked}"
+            Source="vecera"
+            Opacity="0.9"
+            Padding="0"
+            Aspect="AspectFill"
+                VerticalOptions="FillAndExpand"/>
+            </StackLayout>
             <StackLayout
             Grid.Column="0"
             Grid.Row="3"
@@ -123,6 +145,5 @@
                 </Label>
             </StackLayout>
         </Grid>
-    </ScrollView>
-
+    </ContentPage.Content>
 </ContentPage>
