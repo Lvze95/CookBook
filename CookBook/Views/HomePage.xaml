@@ -17,120 +17,68 @@
                 <ColumnDefinition Width="94"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" 
-                   Grid.Column="0" 
-                   Grid.ColumnSpan="3" 
-                   Margin="20, 20, 0, 0" 
-                   Text="Cheat Day" FontSize="50" FontAttributes="Bold"  
-                   TextColor="Green" HorizontalOptions="StartAndExpand"/>
+            <Label 
+                    Grid.Row="0" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="3" 
+                    Margin="20, 20, 0, 0" 
+                    Text="Cheat Day" FontSize="50" FontAttributes="Bold"  
+                    TextColor="Green" HorizontalOptions="StartAndExpand"/>
             <Button
-            Grid.Row="0"
-            Grid.Column="3"
-            BackgroundColor="White"
-            Margin="0, 20, 15, 30"
-            ImageSource="Settings.png"
-            CornerRadius="10"/>
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    BackgroundColor="White"
+                    Margin="0, 20, 15, 30"
+                    ImageSource="Settings.png"
+                    CornerRadius="10"/>
 
-            <StackLayout 
+            <CollectionView
+                SelectionMode="Single"
+                SelectionChangedCommand="{Binding OpetListOfMeals}">
+                <ColectionView.ItemsTemplate>
+                    <StackLayout 
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                HeightRequest="188">
-                <ImageButton 
+                    HeightRequest="188">
+                        <ImageButton 
                     Margin="10,0,0,0"
                     CornerRadius="10"
                     Background="black"
-                    Source="dorucak"
+                    Source="{Binding Image}"
                     Padding="0"
                     Opacity="0.9"
                     Aspect="AspectFill"
                     Command="{Binding BreakfastClicked}"
                     VerticalOptions="FillAndExpand">
-                </ImageButton>
-            </StackLayout>
-            <StackLayout
-                Grid.Row="1"
+                        </ImageButton>
+                    </StackLayout>
+
+                    <StackLayout
+                    Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                VerticalOptions="End"
-                Background="green"
-                Opacity="0.8"
-                Margin="10, 0, 0, 0">
-                <Label Text="Breakfast" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
-            </StackLayout>
+                    VerticalOptions="End"
+                    Background="green"
+                    Opacity="0.8"
+                    Margin="10, 0, 0, 0">
+                        <Label Text="{Binding Type}" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
+                    </StackLayout>
+                </ColectionView.ItemsTemplate>
+            </CollectionView>
 
             <StackLayout
-                Grid.Row="1"
-            Grid.Column="2"
-            Grid.ColumnSpan="2"
-                HeightRequest="188">
-                <ImageButton
-            Margin="0,0,10,0"
-            CornerRadius="10"
-            Background="white"
-            Command="{Binding LunchClicked}"
-            Source="rucak"
-            Padding="0"
-            Opacity="1"
-            Aspect="AspectFill"
-            VerticalOptions="FillAndExpand"/>
-
-            </StackLayout>
-            <StackLayout
-                Grid.Row="1"
-                    Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                VerticalOptions="End"
-                Background="green"
-                Opacity="0.8"
-                Margin="0,0,10,0">
-                <Label Text="Lunch" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
-            </StackLayout>
-
-            <StackLayout
-                Grid.Row="2"
-            Grid.Column="0"
-            Grid.ColumnSpan="2">
-                <ImageButton
-            Margin="10,0,0,0"
-            CornerRadius="10"
-            BackgroundColor="White"
-            Command="{Binding SnacksClicked}"
-            Source="keks"
-            Padding="0"
-            Opacity="0.9"
-            Aspect="AspectFill"
-                VerticalOptions="FillAndExpand"/>
-            </StackLayout>
-
-            <StackLayout
-                            Grid.Row="2"
-            Grid.Column="2"
-            Grid.ColumnSpan="2">
-                <ImageButton
-            Margin="0,0,10,0"
-            CornerRadius="10"
-            Background="white"
-            Command="{Binding DinnerClicked}"
-            Source="vecera"
-            Opacity="0.9"
-            Padding="0"
-            Aspect="AspectFill"
-                VerticalOptions="FillAndExpand"/>
-            </StackLayout>
-            <StackLayout
-            Grid.Column="0"
-            Grid.Row="3"
-            Grid.ColumnSpan="4"
-            VerticalOptions="End">
+                Grid.Column="0"
+                Grid.Row="3"
+                Grid.ColumnSpan="4"
+                VerticalOptions="End">
                 <Label HorizontalTextAlignment="center">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="By "
                                   FontFamily="Font.ttf#Font"
                                   TextColor="DarkSlateGray"
-                                  FontSize="20"
-                                  />
+                                  FontSize="20"/>
                             <Span Text="Error 404"
                                   TextColor="Blue"
                                   FontSize="20"

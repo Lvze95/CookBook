@@ -10,6 +10,13 @@ namespace CookBook.ViewModels
 {
     internal class MainViewModel : BaseViewModel
     {
+        private Dictionary<string, string> _typeImageMap = new Dictionary<string, string>()
+        {
+            {"Breakfast", "dorucak.jpg" },
+            {"Lunch", "rucak.jpg" },
+            {"Sneaks", "keks.jpg" },
+            {"Dinner", "vecera" },
+        };
 
         private readonly INavigationService _navigationService;
 
@@ -20,17 +27,17 @@ namespace CookBook.ViewModels
             _navigationService = navigation;
             _labelText = "Let's test this :D";
 
-            BreakfastClicked = new Command(OnBreakfastClicked);
-            LunchClicked = new Command(OnLunchClicked);
-            DinnerClicked = new Command(OnDinnerClicked);
-            SnacksClicked = new Command(OnSnacksClicked);
+            OpenListOfMeals = new Command<string>(OnSelectedOpenListOfMeals);
+        }
+
+        private void OnSelectedOpenListOfMeals(string obj)
+        {
+            throw new NotImplementedException();
         }
 
         public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
-        public ICommand BreakfastClicked { get; }
-        public ICommand LunchClicked { get; }
-        public ICommand DinnerClicked { get; }
-        public ICommand SnacksClicked { get; }
+
+        public ICommand OpenListOfMeals { get; }
 
 
         public string LabelText 
@@ -43,26 +50,11 @@ namespace CookBook.ViewModels
             { 
                 _labelText = value; 
                 OnPropertyChanged(nameof(LabelText));
-            } 
+            }
         }
-        private void OnBreakfastClicked()
-        {
-            _navigationService.NavigateToBreakfast();
-        }
-
-        private void OnLunchClicked()
-        {
-            _navigationService.NavigateToLunch();
-        }
-
         private void OnDinnerClicked()
         {
             _navigationService.NavigateToDinner();
-        }
-
-        private void OnSnacksClicked()
-        {
-            _navigationService.NavigateToSnacks();
         }
     }
 }

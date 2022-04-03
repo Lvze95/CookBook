@@ -17,17 +17,8 @@ namespace CookBook.Services
         public MainViewModel MainViewModel
             => _serviceProvider.GetService<MainViewModel>();
 
-        public ListBreakfast ListBreakfast 
-            => _serviceProvider.GetService<ListBreakfast>();
-
-        public ListLunch ListLunch 
-            => _serviceProvider.GetService<ListLunch>();
-
         public ListDinner ListDinner 
             => _serviceProvider.GetService<ListDinner>();
-
-        public ListSnacks ListSnacks 
-            => _serviceProvider.GetService<ListSnacks>();
 
     }
 }
