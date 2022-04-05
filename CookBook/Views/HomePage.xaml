@@ -32,16 +32,17 @@
                     ImageSource="Settings.png"
                     CornerRadius="10"/>
 
-            <CollectionView
+            <!--<CollectionView
                 SelectionMode="Single"
                 SelectionChangedCommand="{Binding OpetListOfMeals}">
                 <ColectionView.ItemsTemplate>
-                    <StackLayout 
+                    <DataTamplate x:DataType="viewmodels:MainViewModel">
+                        <StackLayout 
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     HeightRequest="188">
-                        <ImageButton 
+                            <ImageButton 
                     Margin="10,0,0,0"
                     CornerRadius="10"
                     Background="black"
@@ -51,10 +52,10 @@
                     Aspect="AspectFill"
                     Command="{Binding BreakfastClicked}"
                     VerticalOptions="FillAndExpand">
-                        </ImageButton>
-                    </StackLayout>
+                            </ImageButton>
+                        </StackLayout>
 
-                    <StackLayout
+                        <StackLayout
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
@@ -62,10 +63,11 @@
                     Background="green"
                     Opacity="0.8"
                     Margin="10, 0, 0, 0">
-                        <Label Text="{Binding Type}" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
-                    </StackLayout>
+                            <Label Text="{Binding Type}" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
+                        </StackLayout>
+                    </DataTamplate>
                 </ColectionView.ItemsTemplate>
-            </CollectionView>
+            </CollectionView>-->
 
             <StackLayout
                 Grid.Column="0"
