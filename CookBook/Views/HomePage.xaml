@@ -35,13 +35,9 @@
             <!--<CollectionView
                 SelectionMode="Single"
                 SelectionChangedCommand="{Binding OpetListOfMeals}">
-                <ColectionView.ItemsTemplate>
-                    <DataTamplate x:DataType="viewmodels:MainViewModel">
-                        <StackLayout 
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    HeightRequest="188">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:MainViewModel">
+                        <StackLayout>
                             <ImageButton 
                     Margin="10,0,0,0"
                     CornerRadius="10"
@@ -51,22 +47,27 @@
                     Opacity="0.9"
                     Aspect="AspectFill"
                     Command="{Binding BreakfastClicked}"
-                    VerticalOptions="FillAndExpand">
-                            </ImageButton>
-                        </StackLayout>
-
-                        <StackLayout
+                    VerticalOptions="FillAndExpand"
                     Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HeightRequest="188">
+                            </ImageButton>
+                            <Label 
+                                Text="{Binding Type}" 
+                                FontSize="30" 
+                                HorizontalOptions="Center" 
+                                TextColor="White"
+                                Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     VerticalOptions="End"
                     Background="green"
                     Opacity="0.8"
-                    Margin="10, 0, 0, 0">
-                            <Label Text="{Binding Type}" FontSize="30" HorizontalOptions="Center" TextColor="White"/>
+                    Margin="10, 0, 0, 0"/>
                         </StackLayout>
-                    </DataTamplate>
-                </ColectionView.ItemsTemplate>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             </CollectionView>-->
 
             <StackLayout
