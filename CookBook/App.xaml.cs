@@ -3,7 +3,9 @@ using CookBook.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Xamarin.Forms;
+using CookBook.Views;
 using Xamarin.Forms.Xaml;
+using CookBook.DataAccess;
 
 namespace CookBook
 {
@@ -16,7 +18,7 @@ namespace CookBook
             InitializeComponent();
             SetupServices();
 
-            MainPage = new NavigationPage(new MainPage(){ BindingContext = Locator.MainViewModel });
+            MainPage = new NavigationPage(new HomePage(){ BindingContext = Locator.MainViewModel });
         }
 
         internal static ViewModelLocator Locator
@@ -49,6 +51,7 @@ namespace CookBook
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddTransient<MainViewModel>();
             serviceCollection.AddSingleton<INavigationService, NavigationService>();
+            serviceCollection.AddSingleton<ICookBookRepository, CookBookRepository>();
             _serviceProvider = serviceCollection.BuildServiceProvider();
         }
     }

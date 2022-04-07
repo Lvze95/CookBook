@@ -1,7 +1,7 @@
-﻿using CookBook.Services;
+﻿using CookBook.DataAccess;
+using CookBook.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -19,13 +19,12 @@ namespace CookBook.ViewModels
         };
 
         private readonly INavigationService _navigationService;
+        private readonly ICookBookRepository _cookBookRepository;
 
-        private string _labelText;
-
-        public MainViewModel(INavigationService navigation)
+        public MainViewModel(INavigationService navigation, ICookBookRepository recipeRepository)
         {
             _navigationService = navigation;
-            _labelText = "Let's test this :D";
+            _cookBookRepository = recipeRepository;
 
             OpenListOfMeals = new Command<string>(OnSelectedOpenListOfMeals);
         }
@@ -39,19 +38,6 @@ namespace CookBook.ViewModels
 
         public ICommand OpenListOfMeals { get; }
 
-
-        public string LabelText 
-        { 
-            get 
-            { 
-                return _labelText; 
-            } 
-            set 
-            { 
-                _labelText = value; 
-                OnPropertyChanged(nameof(LabelText));
-            }
-        }
         private void OnDinnerClicked()
         {
             _navigationService.NavigateToDinner();

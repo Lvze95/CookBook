@@ -48,7 +48,9 @@
     <EmbeddedResource Include="Resources\background3.png" />
     <EmbeddedResource Include="Resources\background4.png" />
     <EmbeddedResource Include="Resources\background5.png" />
-    <EmbeddedResource Include="Resources\recipe.json" />
+    <EmbeddedResource Include="Resources\recipe.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\step5_1.png" />
     <EmbeddedResource Include="Resources\step5_2.png" />
     <EmbeddedResource Include="Resources\step5_3.png" />
