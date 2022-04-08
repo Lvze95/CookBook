@@ -1,5 +1,6 @@
 ﻿using CookBook.Services;
 using CookBook.ViewModels;
+using CookBook.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Xamarin.Forms;
@@ -16,7 +17,7 @@ namespace CookBook
             InitializeComponent();
             SetupServices();
 
-            MainPage = new NavigationPage(new MainPage(){ BindingContext = Locator.MainViewModel });
+            MainPage = new NavigationPage(new HomePage(){ BindingContext = Locator.MainViewModel });
         }
 
         internal static ViewModelLocator Locator
