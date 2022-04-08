@@ -1,5 +1,6 @@
 ﻿using CookBook.Services;
 using CookBook.ViewModels;
+using CookBook.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Xamarin.Forms;
