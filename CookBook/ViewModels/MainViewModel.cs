@@ -35,6 +35,21 @@ namespace CookBook.ViewModels
         {
             var mainViewModel = new List<MainViewModel>();
             var categories = _cookBookRepository.GetAllRecipeCategories();
+
+            /* foreach (var category in categories)
+             {
+                 mainViewModel.Add(new MainViewModel())
+             }
+
+             var notesViewModel = new List<NoteItemViewModel>();
+             var notes = _notesRepository.GetAllNotes();
+
+             foreach (var note in notes)
+             {
+                 notesViewModel.Add(new NoteItemViewModel(note));
+             }
+
+             NotesSource = new ObservableCollection<NoteItemViewModel>(notesViewModel); */
         }
 
         private void OnSelectedOpenListOfMeals(string obj)
