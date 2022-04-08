@@ -35,7 +35,7 @@
 
             <!--<CollectionView
                 SelectionMode="Single"
-                SelectionChangedCommand="{Binding OpetListOfMeals}">
+                SelectionChangedCommand="{Binding OpenListOfMeals}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:MainViewModel">
                         <StackLayout>

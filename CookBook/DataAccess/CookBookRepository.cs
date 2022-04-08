@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace CookBook.DataAccess
@@ -14,6 +15,7 @@ namespace CookBook.DataAccess
         public CookBookRepository()
         {
             LoadRecipes();
+            var test = GetAllRecipeCategories();
         }
 
         public IEnumerable<Recipe> GetAllRecipes()
@@ -21,9 +23,14 @@ namespace CookBook.DataAccess
             return _recipes;
         }
 
-        public IEnumerable<string> GetAllRecipeCategories() //TO DO LIQU maybe? try to get from JSON file only recipe categories
+        public IEnumerable<string> GetAllRecipeCategories()
         {
-            return null;
+            var result = new List<string>();
+            foreach (var recipe in _recipes)
+            {
+                result.Add(recipe.Type);
+            }
+            return result.Distinct().ToList();
         }
 
         private void LoadRecipes()
