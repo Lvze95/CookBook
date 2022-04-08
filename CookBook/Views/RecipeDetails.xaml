@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookBook.Views.RecipeDetails">
+    <ContentPage.Content>
+        <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <ImageButton
+                Source="backLight"
+                Grid.Column="0"
+                Grid.Row="0"
+                CornerRadius="10"
+                Margin="10, 10, 5, 5"/>
+            <Frame BackgroundColor="Green"
+               Grid.Column="1"
+               Grid.Row="0"
+               Margin="5, 10, 10, 5"
+               CornerRadius="10"
+               HasShadow="True">
+                <Label Text=""
+                   FontSize="40"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            </Frame>
+            <Label Text=""
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   TextColor="Black"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
