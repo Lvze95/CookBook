@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CookBook.Views.Page1">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CookBook.ViewModels"
+             x:Class="CookBook.Views.HomePage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
@@ -30,9 +31,10 @@
                     BackgroundColor="White"
                     Margin="0, 20, 15, 30"
                     ImageSource="Settings.png"
-                    CornerRadius="10"/>
+                    CornerRadius="10"
+                    VerticalOptions="Start"/>
 
-            <!--<CollectionView
+            <CollectionView
                 SelectionMode="Single"
                 SelectionChangedCommand="{Binding OpetListOfMeals}">
                 <CollectionView.ItemTemplate>
@@ -68,7 +70,7 @@
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>-->
+            </CollectionView>
 
             <StackLayout
                 Grid.Column="0"
