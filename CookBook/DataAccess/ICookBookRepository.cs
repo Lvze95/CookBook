@@ -10,5 +10,7 @@ namespace CookBook.DataAccess
         IEnumerable<string> GetAllRecipeCategories();
 
         string GetCategoryImageName(string categoryName);
+
+        IEnumerable<Recipe> GetRecipeByCategory(string categoryName);
     }
 }
