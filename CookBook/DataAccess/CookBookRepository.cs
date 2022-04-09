@@ -15,7 +15,6 @@ namespace CookBook.DataAccess
         public CookBookRepository()
         {
             LoadRecipes();
-            var test = GetAllRecipeCategories();
         }
 
         public IEnumerable<Recipe> GetAllRecipes()
@@ -31,6 +30,11 @@ namespace CookBook.DataAccess
                 result.Add(recipe.Type);
             }
             return result.Distinct().ToList();
+        }
+
+        public string GetCategoryImageName(string categoryName)
+        {
+            return _recipes.FirstOrDefault(x => x.Type == categoryName)?.ThumbnailImage;
         }
 
         private void LoadRecipes()

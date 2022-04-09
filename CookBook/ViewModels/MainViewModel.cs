@@ -2,9 +2,7 @@
 using CookBook.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -24,6 +22,8 @@ namespace CookBook.ViewModels
         private readonly INavigationService _navigationService;
         private readonly ICookBookRepository _cookBookRepository;
 
+        private ObservableCollection<MealsCategoryViewModel> _categorySource;
+
         public MainViewModel(INavigationService navigation, ICookBookRepository recipeRepository)
         {
             _navigationService = navigation;
@@ -34,25 +34,29 @@ namespace CookBook.ViewModels
             OpenListOfMeals = new Command<string>(OnSelectedOpenListOfMeals);
         }
 
-        public void LoadRecipes()
+        private void LoadRecipes()
         {
-            var mainViewModel = new List<MainViewModel>();
+            var mealsViewModel = new List<MealsCategoryViewModel>();
             var categories = _cookBookRepository.GetAllRecipeCategories();
 
-            /* foreach (var category in categories)
-             {
-                 mainViewModel.Add(new MainViewModel())
-             }
+            foreach (var category in categories)
+            {
+                var categoryImage = _cookBookRepository.GetCategoryImageName(category);
 
-             var notesViewModel = new List<NoteItemViewModel>();
-             var notes = _notesRepository.GetAllNotes();
+                mealsViewModel.Add(new MealsCategoryViewModel(category, categoryImage));
+            }
 
-             foreach (var note in notes)
-             {
-                 notesViewModel.Add(new NoteItemViewModel(note));
-             }
+            CategorySource = new ObservableCollection<MealsCategoryViewModel>(mealsViewModel);
+        }
 
-             NotesSource = new ObservableCollection<NoteItemViewModel>(notesViewModel); */
+        public ObservableCollection<MealsCategoryViewModel> CategorySource
+        {
+            get { return _categorySource; }
+            set
+            {
+                _categorySource = value;
+                OnPropertyChanged(nameof(CategorySource));
+            }
         }
 
         private void OnSelectedOpenListOfMeals(string obj)
@@ -69,18 +73,6 @@ namespace CookBook.ViewModels
             _navigationService.NavigateToDinner();
         }
 
-        /*protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
-        {
-            if (!Equals(field, newValue))
-            {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
-            }
-
-            return false;
-        }*/
-
         private ImageSource image;
 
         public ImageSource Image { get => image; set => SetProperty(ref image, value); }
@@ -89,18 +81,6 @@ namespace CookBook.ViewModels
         {
             throw new NotImplementedException();
         }
-
-        /*protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
-        {
-            if (!Equals(field, newValue))
-            {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
-            }
-
-            return false;
-        }*/
 
         private string type;
 
