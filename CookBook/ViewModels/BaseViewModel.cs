@@ -8,11 +8,11 @@ namespace CookBook.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //protected virtual void onpropertychanged(string propertyname = null)
-        //{
-        //    propertychanged?.invoke(this,
-        //        new propertychangedeventargs(propertyname)); 
-        //} Pokusao sam ad napisem navigazij uza settings, Lazar
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this,
+                new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }
