@@ -39,6 +39,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
+                SelectedItem="{Binding SelectedRecipeCategory}"
                 SelectionChangedCommand="{Binding OpenListOfMeals}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:MealsCategoryViewModel">

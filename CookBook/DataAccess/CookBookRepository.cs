@@ -37,7 +37,7 @@ namespace CookBook.DataAccess
             return _recipes.FirstOrDefault(x => x.Type == categoryName)?.ThumbnailImage;
         }
 
-        public IEnumerable<Recipe> GetRecipeByCategory(string categoryName)
+        public IEnumerable<Recipe> GetRecipesByCategory(string categoryName)
         {
             return _recipes.Where(x => x.Type == categoryName).ToList();
         }

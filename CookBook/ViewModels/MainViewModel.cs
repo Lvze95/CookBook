@@ -11,18 +11,11 @@ namespace CookBook.ViewModels
 {
     internal class MainViewModel : BaseViewModel
     {
-        private Dictionary<string, string> _typeImageMap = new Dictionary<string, string>()
-        {
-            {"Breakfast", "dorucak.jpg" },
-            {"Lunch", "rucak.jpg" },
-            {"Sneaks", "keks.jpg" },
-            {"Dinner", "vecera" },
-        };
-
         private readonly INavigationService _navigationService;
         private readonly ICookBookRepository _cookBookRepository;
 
         private ObservableCollection<MealsCategoryViewModel> _categorySource;
+        private MealsCategoryViewModel _selectedRecipeCategory;
 
         public MainViewModel(INavigationService navigation, ICookBookRepository recipeRepository)
         {
@@ -31,7 +24,7 @@ namespace CookBook.ViewModels
 
             LoadRecipes();
 
-            OpenListOfMeals = new Command<string>(OnSelectedOpenListOfMeals);
+            OpenListOfMeals = new Command(OnOpenListOfMeals);
         }
 
         private void LoadRecipes()
@@ -59,36 +52,27 @@ namespace CookBook.ViewModels
             }
         }
 
-        private void OnSelectedOpenListOfMeals(string obj)
+        public MealsCategoryViewModel SelectedRecipeCategory
         {
-            throw new NotImplementedException();
+            get { return _selectedRecipeCategory; }
+            set 
+            { 
+                _selectedRecipeCategory = value; 
+                OnPropertyChanged(nameof(SelectedRecipeCategory)); 
+            }
+        }
+
+        private void OnOpenListOfMeals()
+        {
+            if (SelectedRecipeCategory != null)
+            {
+                _navigationService.NavigateToListOfMeals(SelectedRecipeCategory.Type);
+            }
+            SelectedRecipeCategory = null;
         }
 
         public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
 
         public ICommand OpenListOfMeals { get; }
-
-        private void OnDinnerClicked()
-        {
-            _navigationService.NavigateToDinner();
-        }
-
-        private ImageSource image;
-
-        public ImageSource Image { get => image; set => SetProperty(ref image, value); }
-
-        private void SetProperty(ref ImageSource image, ImageSource value)
-        {
-            throw new NotImplementedException();
-        }
-
-        private string type;
-
-        public string Type { get => type; set => SetProperty(ref type, value); }
-
-        private void SetProperty(ref string type, string value)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

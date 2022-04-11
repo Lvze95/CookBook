@@ -17,8 +17,8 @@ namespace CookBook.Services
         public MainViewModel MainViewModel
             => _serviceProvider.GetService<MainViewModel>();
 
-        public ListDinner ListDinner 
-            => _serviceProvider.GetService<ListDinner>();
+        public RecipeListViewModel RecipeListViewModel
+            => _serviceProvider.GetService<RecipeListViewModel>();
 
     }
 }

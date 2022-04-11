@@ -1,20 +1,46 @@
 ﻿using CookBook.DataAccess;
-using System;
+using CookBook.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace CookBook.ViewModels
 {
     internal class RecipeListViewModel : BaseViewModel
     {
-        internal void LoadRecipes(string category)
-        {
-            throw new NotImplementedException();
-        }
         private string _title;
-        private ICookBookRepository _cookBookRepository;
+        private readonly INavigationService _navigationService;
+
+        private readonly ICookBookRepository _cookBookRepository;
         private ObservableCollection<RecipeItemViewModel> _recipes;
         private RecipeItemViewModel _selectedRecipe;
+
+        public RecipeListViewModel(ICookBookRepository cookBookRepository, INavigationService navigationService)
+        {
+            _cookBookRepository = cookBookRepository;
+            _navigationService = navigationService;
+        }
+
+        public ObservableCollection<RecipeItemViewModel> RecipesSource
+        {
+            get => _recipes;
+            set
+            {
+                _recipes = value;
+                OnPropertyChanged(nameof(RecipesSource));
+            }
+        }
+
+        internal void LoadRecipesByCategory(string category)
+        {
+            var listOfRecipesViewModel = new List<RecipeItemViewModel>();
+            var listOfRecipes = _cookBookRepository.GetRecipesByCategory(category);
+
+            foreach (var Recipe in listOfRecipes)
+            {
+                listOfRecipesViewModel.Add(new RecipeItemViewModel(Recipe.Name, Recipe.ShortDescription, Recipe.ThumbnailImage));
+            }
+
+            RecipesSource = new ObservableCollection<RecipeItemViewModel>(listOfRecipesViewModel);
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace CookBook.ViewModels
         }
         public string Recipe { get; set; }
         public string Image { get; set; }
-        public string _type;
+        private string _type;
 
         public string Type
         {
