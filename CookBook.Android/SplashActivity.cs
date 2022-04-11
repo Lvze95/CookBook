@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CookBook.Droid
 {
-    [Activity(Label = "SplashActivity", MainLauncher = true, Theme = "@style/MyTheme.Splash", NoHistory = true)]
+    [Activity(Label = "Cheat Day", Icon = "@mipmap/ic_launcher_foreground", MainLauncher = true, Theme = "@style/MyTheme.Splash", NoHistory = true)]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

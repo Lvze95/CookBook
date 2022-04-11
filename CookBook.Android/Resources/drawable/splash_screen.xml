@@ -3,10 +3,14 @@
 	<item>
 		<color android:color="@color/splash_background"/>
 	</item>
-	<item>
+	<item
+		android:gravity="center"
+		android:width="300dp"
+		android:height="300dp">
 		<bitmap
 			android:src="@drawable/salad"
 			android:tileMode="disabled"
-			android:gravity="center"/>
+			/>
 	</item>
+
 </layer-list>

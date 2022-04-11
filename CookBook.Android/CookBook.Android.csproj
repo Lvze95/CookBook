@@ -115,9 +115,6 @@
     <AndroidResource Include="Resources\drawable\background5.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\salad.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\salad.png" />
   </ItemGroup>
   <ItemGroup>
