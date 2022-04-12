@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CookBook.ViewModels"
              x:Class="CookBook.Views.RecipeListView"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -33,21 +33,25 @@
                    TextColor="White" />
             </Frame>
 
-            <CollectionView>
+            <CollectionView
+                ItemsSource="{Binding RecipesSource}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="viewmodels:RecipeItemViewModel">
                         <StackLayout>
-                            <Image Source=""
+                            <Image Source="{Binding Image}"
                                 Grid.Column="0"
                                 Grid.Row="1"
                                 Grid.RowSpan="2"
                                 Margin="10, 20, 5, 5" />
-                            <Label Text=""
+                            <Label Text="{ Binding Title}"
                                 Grid.Column="1"
                                 Grid.Row="1"
                                 Margin="5, 20, 10, 5"
                                 TextColor="Black" />
-                            <Label Text=""
+                            <Label Text="{Binding Description}"
                                 Grid.Column="1"
                                 Grid.Row="2"
                                 Margin="5, 5, 10, 5"
