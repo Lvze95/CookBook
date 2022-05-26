@@ -5,6 +5,7 @@
         private string _image;
         private string name;
 
+
         public string Image
         {
             get => _image;
@@ -24,5 +25,6 @@
                 OnPropertyChanged(nameof(Name));
             }
         }
+
     }
 }

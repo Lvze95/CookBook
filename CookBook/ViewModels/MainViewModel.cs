@@ -1,5 +1,6 @@
 ﻿using CookBook.DataAccess;
 using CookBook.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -54,10 +55,10 @@ namespace CookBook.ViewModels
         public MealsCategoryViewModel SelectedRecipeCategory
         {
             get { return _selectedRecipeCategory; }
-            set
-            {
-                _selectedRecipeCategory = value;
-                OnPropertyChanged(nameof(SelectedRecipeCategory));
+            set 
+            { 
+                _selectedRecipeCategory = value; 
+                OnPropertyChanged(nameof(SelectedRecipeCategory)); 
             }
         }
 

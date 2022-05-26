@@ -1,7 +1,11 @@
 ﻿using CookBook.DataAccess;
 using CookBook.Services;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace CookBook.ViewModels
 {
@@ -67,7 +71,6 @@ namespace CookBook.ViewModels
                 OnPropertyChanged(nameof(Type));
             }
         }
-
         public ObservableCollection<RecipeNameViewModel> Steps
         {
             get => _steps;
@@ -77,7 +80,6 @@ namespace CookBook.ViewModels
                 OnPropertyChanged(nameof(Steps));
             }
         }
-
         public ObservableCollection<IngredientViewModel> Ingredients
         {
             get => _ingredients;

@@ -1,4 +1,8 @@
-﻿namespace CookBook.ViewModels
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CookBook.ViewModels
 {
     internal class MealsCategoryViewModel : BaseViewModel
     {
@@ -7,7 +11,6 @@
             Type = category;
             Image = image;
         }
-
         public string Recipe { get; set; }
         public string Image { get; set; }
         private string _type;

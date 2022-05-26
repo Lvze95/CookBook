@@ -9,7 +9,7 @@ namespace CookBook.Services
         {
             var vm = App.Locator.RecipeListViewModel;
             vm.LoadRecipesByCategory(category);
-            Application.Current.MainPage.Navigation.PushAsync(new RecipeListView { BindingContext = vm });
+            Application.Current.MainPage.Navigation.PushAsync( new RecipeListView { BindingContext = vm});
         }
     }
 }
