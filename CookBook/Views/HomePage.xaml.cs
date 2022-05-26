@@ -31,5 +31,10 @@ namespace CookBook.Views
         {
             DisplayAlert("Dark Mode", "Ok");
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Settings()); //Navigacija za settings
+        }
     }
 }
