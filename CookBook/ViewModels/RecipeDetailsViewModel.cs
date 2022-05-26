@@ -1,20 +1,21 @@
 ﻿using CookBook.DataAccess;
+using CookBook.Models;
 using CookBook.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace CookBook.ViewModels
 {
     internal class RecipeDetailsViewModel : BaseViewModel
     {
+        private string _id;
         private string _name;
         private string _backgroundImage;
-        private string _longdescription;
+        private string _thumbnailImage;
+        private string _shortDescription;
+        private string _longDescription;
         private string _type;
+
         private ObservableCollection<RecipeNameViewModel> _steps;
         private ObservableCollection<IngredientViewModel> _ingredients;
         private ICookBookRepository _recipeRepository;
@@ -30,6 +31,18 @@ namespace CookBook.ViewModels
         {
             get;
             set;
+        }
+
+        public Recipe Recipe { get; }
+
+        public string Id
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+                OnPropertyChanged(nameof(Id));
+            }
         }
 
         public string Name
@@ -52,13 +65,33 @@ namespace CookBook.ViewModels
             }
         }
 
-        public string Longdescription
+        public string ThumbnailImage
         {
-            get => _longdescription;
+            get => _thumbnailImage;
             set
             {
-                _longdescription = value;
-                OnPropertyChanged(nameof(Longdescription));
+                _thumbnailImage = value;
+                OnPropertyChanged(nameof(ThumbnailImage));
+            }
+        }
+
+        public string ShortDescription
+        {
+            get => _shortDescription;
+            set
+            {
+                _shortDescription = value;
+                OnPropertyChanged(nameof(ShortDescription));
+            }
+        }
+
+        public string LongDescription
+        {
+            get => _longDescription;
+            set
+            {
+                _longDescription = value;
+                OnPropertyChanged(nameof(LongDescription));
             }
         }
 
@@ -71,6 +104,7 @@ namespace CookBook.ViewModels
                 OnPropertyChanged(nameof(Type));
             }
         }
+
         public ObservableCollection<RecipeNameViewModel> Steps
         {
             get => _steps;
@@ -80,6 +114,7 @@ namespace CookBook.ViewModels
                 OnPropertyChanged(nameof(Steps));
             }
         }
+
         public ObservableCollection<IngredientViewModel> Ingredients
         {
             get => _ingredients;
@@ -88,6 +123,19 @@ namespace CookBook.ViewModels
                 _ingredients = value;
                 OnPropertyChanged(nameof(Ingredients));
             }
+        }
+
+        internal void LoadRecipeDescription(Recipe recipe)
+        {
+            Id = recipe.Id;
+            Name = recipe.Name;
+            BackgroundImage = recipe.BackgroundImage;
+            ThumbnailImage = recipe.ThumbnailImage;
+            ShortDescription = recipe.ShortDescription;
+            LongDescription = recipe.LongDescription;
+            Type = recipe.Type;
+            Steps = new ObservableCollection<RecipeNameViewModel>();
+            Ingredients = new ObservableCollection<IngredientViewModel>();
         }
     }
 }

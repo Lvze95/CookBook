@@ -1,7 +1,11 @@
 ﻿using CookBook.DataAccess;
+using CookBook.Models;
 using CookBook.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace CookBook.ViewModels
 {
@@ -12,12 +16,14 @@ namespace CookBook.ViewModels
 
         private readonly ICookBookRepository _cookBookRepository;
         private ObservableCollection<RecipeItemViewModel> _recipes;
-        private RecipeItemViewModel _selectedRecipe;
+        private RecipeDetailsViewModel _selectedRecipe;
 
         public RecipeListViewModel(ICookBookRepository cookBookRepository, INavigationService navigationService)
         {
             _cookBookRepository = cookBookRepository;
             _navigationService = navigationService;
+
+            OpenRecipeDetails = new Command(OnOpenRecipeDetails);
         }
 
         public ObservableCollection<RecipeItemViewModel> RecipesSource
@@ -27,6 +33,16 @@ namespace CookBook.ViewModels
             {
                 _recipes = value;
                 OnPropertyChanged(nameof(RecipesSource));
+            }
+        }
+
+        public RecipeDetailsViewModel SelectedRecipe
+        {
+            get { return _selectedRecipe; }
+            set
+            {
+                _selectedRecipe = value;
+                OnPropertyChanged(nameof(SelectedRecipe));
             }
         }
 
@@ -42,5 +58,17 @@ namespace CookBook.ViewModels
 
             RecipesSource = new ObservableCollection<RecipeItemViewModel>(listOfRecipesViewModel);
         }
+
+        private void OnOpenRecipeDetails()
+        {
+            if (SelectedRecipe != null)
+            {
+                _navigationService.NavigateToRecipeDetails(SelectedRecipe.Recipe);
+            }
+            SelectedRecipe = null;
+        }
+
+        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
+        public ICommand OpenRecipeDetails { get; }
     }
 }

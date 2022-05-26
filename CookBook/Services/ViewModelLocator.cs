@@ -20,5 +20,7 @@ namespace CookBook.Services
         public RecipeListViewModel RecipeListViewModel
             => _serviceProvider.GetService<RecipeListViewModel>();
 
+        public RecipeDetailsViewModel RecipeDetailsViewModel
+            => _serviceProvider.GetService<RecipeDetailsViewModel>();
     }
 }

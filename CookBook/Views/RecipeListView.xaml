@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CookBook.ViewModels"
              x:Class="CookBook.Views.RecipeListView"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content>
+    <ContentPage.Content x:DataType="viewmodels:RecipeItemViewModel">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -26,7 +26,7 @@
                Margin="5, 10, 10, 5"
                CornerRadius="10"
                    HasShadow="True">
-                <Label Text=""
+                <Label Text="{Binding Title}"
                    FontSize="40"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
@@ -37,7 +37,9 @@
                 ItemsSource="{Binding RecipesSource}"
                 Grid.Row="1"
                 Grid.Column="0"
-                Grid.ColumnSpan="2">
+                Grid.ColumnSpan="2"
+                SelectedItem="{Binding SelectedRecipe}"
+                SelectionChangedCommand="{Binding OpenRecipeDetails}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:RecipeItemViewModel">
                         <StackLayout>
