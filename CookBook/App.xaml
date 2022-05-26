@@ -5,10 +5,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="FontFamily" Value="Font.ttf#Font"/>
+                <Setter Property="FontFamily" Value="Font.ttf#Font" />
             </Style>
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="Font.ttf#Font"/>
+                <Setter Property="FontFamily" Value="Font.ttf#Font" />
             </Style>
 
             <Color x:Key="TextColor">white</Color>
@@ -19,8 +19,6 @@
 
             <Color x:Key="LabelBackgroundColor">green</Color>
             <Color x:Key="LabelBackgroundColorDark">DarkOrange</Color>
-            
-            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

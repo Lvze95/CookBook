@@ -1,5 +1,4 @@
 ﻿using CookBook.ViewModels;
-using CookBook.Views;
 using System;
 using Xamarin.Forms.Xaml;
 
@@ -19,6 +18,5 @@ namespace CookBook.Services
 
         public RecipeListViewModel RecipeListViewModel
             => _serviceProvider.GetService<RecipeListViewModel>();
-
     }
 }

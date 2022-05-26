@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Switch IsToggled="False"
                 OnColor="LightGreen"
@@ -16,11 +16,11 @@
                 VerticalOptions="Start"
                 Margin="0,40,0,0">
             </Switch>
-            <Label Text="Switch to dark mode" 
-                   TextColor="DarkSlateGray" 
-                   FontSize="25" 
+            <Label Text="Switch to dark mode"
+                   TextColor="DarkSlateGray"
+                   FontSize="25"
                    Margin="40, 30, 0, 0"
-                   FontFamily="Font.ttf"/>
+                   FontFamily="Font.ttf" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

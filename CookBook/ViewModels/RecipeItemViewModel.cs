@@ -8,6 +8,7 @@
             Description = shortDescription;
             Image = image;
         }
+
         public string Title { get; }
         public string Description { get; }
         public string Image { get; }

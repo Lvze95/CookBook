@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace CookBook.ViewModels
 {
@@ -13,6 +11,5 @@ namespace CookBook.ViewModels
             PropertyChanged?.Invoke(this,
                 new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
