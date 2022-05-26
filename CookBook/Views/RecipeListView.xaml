@@ -19,8 +19,10 @@
                 Grid.Column="0"
                 Grid.Row="0"
                 CornerRadius="10"
-                Margin="10, 10, 5, 5" />
-            <Frame BackgroundColor="Green"
+                Margin="10, 10, 5, 5"
+                BackgroundColor="White"
+                Clicked="Button_Clicked"/>
+            <Frame BackgroundColor="White"
                Grid.Column="1"
                Grid.Row="0"
                Margin="5, 10, 10, 5"
@@ -30,7 +32,8 @@
                    FontSize="40"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   TextColor="White" />
+                    HorizontalTextAlignment="Center"
+                   TextColor="Green"/>
             </Frame>
 
             <CollectionView
@@ -52,12 +55,17 @@
                                 Grid.Column="1"
                                 Grid.Row="1"
                                 Margin="5, 20, 10, 5"
-                                TextColor="Black" />
+                                TextColor="Green" 
+                                   HorizontalOptions="Center"
+                                   FontSize="20"/>
                             <Label Text="{Binding Description}"
                                 Grid.Column="1"
                                 Grid.Row="2"
                                 Margin="5, 5, 10, 5"
-                                TextColor="Black" />
+                                TextColor="Black" 
+                                   FontFamily="FontText"
+                                   HorizontalTextAlignment="Center"
+                                   />
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

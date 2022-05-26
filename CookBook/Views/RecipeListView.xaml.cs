@@ -10,5 +10,10 @@ namespace CookBook.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }
