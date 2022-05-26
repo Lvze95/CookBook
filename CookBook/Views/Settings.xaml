@@ -6,22 +6,39 @@
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <ImageButton
+                Source="backLight"
+                Grid.Column="0"
+                Grid.Row="0"
+                CornerRadius="10"
+                Margin="10, 10, 5, 5"
+                BackgroundColor="White"
+                Clicked="ImageButton_Clicked_1"
+                VerticalOptions="Start"/>
             <Switch IsToggled="False"
                 OnColor="LightGreen"
                 ThumbColor="Green"
-                Grid.Column="1"
+                Grid.Column="2"
                 HorizontalOptions="Start"
                 VerticalOptions="Start"
-                Margin="0,40,0,0">
+                Margin="0,40,0,0"
+                    Grid.Row="1">
             </Switch>
             <Label Text="Switch to dark mode" 
                    TextColor="DarkSlateGray" 
                    FontSize="25" 
                    Margin="40, 45, 0, 0"
                    FontFamily="Font.ttf"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
                    />
         </Grid>
     </ContentPage.Content>

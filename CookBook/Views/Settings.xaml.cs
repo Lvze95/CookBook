@@ -16,5 +16,10 @@ namespace CookBook.Views
         {
             InitializeComponent();
         }
+
+        private void ImageButton_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }
