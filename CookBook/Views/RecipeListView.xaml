@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CookBook.ViewModels"
              x:Class="CookBook.Views.RecipeListView"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource WindowBackgroundColorDark},
+                                               Light={StaticResource WindowBackgroundColor}}">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -20,9 +22,9 @@
                 Grid.Row="0"
                 CornerRadius="10"
                 Margin="10, 10, 5, 5"
-                BackgroundColor="White"
+                
                 Clicked="Button_Clicked"/>
-            <Frame BackgroundColor="White"
+            <Frame
                Grid.Column="1"
                Grid.Row="0"
                Margin="5, 10, 10, 5"
