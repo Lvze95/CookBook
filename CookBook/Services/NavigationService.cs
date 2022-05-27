@@ -1,4 +1,4 @@
-﻿using CookBook.Models;
+﻿using CookBook.ViewModels;
 using CookBook.Views;
 using Xamarin.Forms;
 
@@ -13,10 +13,12 @@ namespace CookBook.Services
             Application.Current.MainPage.Navigation.PushAsync(new RecipeListView { BindingContext = vm });
         }
 
-        public void NavigateToRecipeDetails(Recipe recipe)
+        public void NavigateToRecipeDetails(RecipeItemViewModel recipe)
         {
             var vm = App.Locator.RecipeDetailsViewModel;
-            vm.LoadRecipeDescription(recipe);
+
+
+            // vm.LoadRecipeDescription(recipe);
             Application.Current
                  .MainPage
                  .Navigation

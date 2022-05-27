@@ -1,75 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CookBook.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CookBook.ViewModels"
+             x:DataType="viewmodels:RecipeListViewModel"
              x:Class="CookBook.Views.RecipeListView"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content x:DataType="viewmodels:RecipeItemViewModel">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
-            <ImageButton
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <ImageButton
                 Source="backLight"
                 Grid.Column="0"
                 Grid.Row="0"
                 CornerRadius="10"
                 Margin="10, 10, 5, 5"
                 BackgroundColor="White"
-                Clicked="Button_Clicked"/>
-            <Frame BackgroundColor="White"
+                Clicked="Button_Clicked" />
+        <Frame BackgroundColor="White"
                Grid.Column="1"
                Grid.Row="0"
                Margin="5, 10, 10, 5"
                CornerRadius="10"
                    HasShadow="True">
-                <Label Text="{Binding Title}"
+            <Label Text="{Binding Title}"
                    FontSize="40"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                     HorizontalTextAlignment="Center"
-                   TextColor="Green"/>
-            </Frame>
+                   TextColor="Green" />
+        </Frame>
 
-            <CollectionView
-                ItemsSource="{Binding RecipesSource}"
+        <CollectionView
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
+                SelectionMode="Single"
+                ItemsSource="{Binding RecipesSource}"
                 SelectedItem="{Binding SelectedRecipe}"
                 SelectionChangedCommand="{Binding OpenRecipeDetails}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:RecipeItemViewModel">
-                        <StackLayout>
-                            <Image Source="{Binding Image}"
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:RecipeItemViewModel">
+                    <StackLayout>
+                        <Image Source="{Binding Image}"
                                 Grid.Column="0"
                                 Grid.Row="1"
                                 Grid.RowSpan="2"
                                 Margin="10, 20, 5, 5" />
-                            <Label Text="{ Binding Title}"
+                        <Label Text="{ Binding Title}"
                                 Grid.Column="1"
                                 Grid.Row="1"
                                 Margin="5, 20, 10, 5"
-                                TextColor="Green" 
+                                TextColor="Green"
                                    HorizontalOptions="Center"
-                                   FontSize="20"/>
-                            <Label Text="{Binding Description}"
+                                   FontSize="20" />
+                        <Label Text="{Binding Description}"
                                 Grid.Column="1"
                                 Grid.Row="2"
                                 Margin="5, 5, 10, 5"
-                                TextColor="Black" 
+                                TextColor="Black"
                                    FontFamily="FontText"
-                                   HorizontalTextAlignment="Center"
-                                   />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-    </ContentPage.Content>
+                                   HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

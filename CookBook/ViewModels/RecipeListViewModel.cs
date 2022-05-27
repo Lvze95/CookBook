@@ -16,7 +16,7 @@ namespace CookBook.ViewModels
 
         private readonly ICookBookRepository _cookBookRepository;
         private ObservableCollection<RecipeItemViewModel> _recipes;
-        private RecipeDetailsViewModel _selectedRecipe;
+        private RecipeItemViewModel _selectedRecipe;
 
         public RecipeListViewModel(ICookBookRepository cookBookRepository, INavigationService navigationService)
         {
@@ -25,6 +25,8 @@ namespace CookBook.ViewModels
 
             OpenRecipeDetails = new Command(OnOpenRecipeDetails);
         }
+        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
+        public ICommand OpenRecipeDetails { get; }
 
         public ObservableCollection<RecipeItemViewModel> RecipesSource
         {
@@ -36,7 +38,7 @@ namespace CookBook.ViewModels
             }
         }
 
-        public RecipeDetailsViewModel SelectedRecipe
+        public RecipeItemViewModel SelectedRecipe
         {
             get { return _selectedRecipe; }
             set
@@ -45,11 +47,21 @@ namespace CookBook.ViewModels
                 OnPropertyChanged(nameof(SelectedRecipe));
             }
         }
-
-        internal void LoadRecipesByCategory(string category)
+         public string Title
+        {
+            get => _title;
+            set
+            {
+                _title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+        public void LoadRecipesByCategory(string category)
         {
             var listOfRecipesViewModel = new List<RecipeItemViewModel>();
             var listOfRecipes = _cookBookRepository.GetRecipesByCategory(category);
+
+            Title = category;
 
             foreach (var Recipe in listOfRecipes)
             {
@@ -63,12 +75,10 @@ namespace CookBook.ViewModels
         {
             if (SelectedRecipe != null)
             {
-                _navigationService.NavigateToRecipeDetails(SelectedRecipe.Recipe);
+                _navigationService.NavigateToRecipeDetails(SelectedRecipe);
             }
             SelectedRecipe = null;
         }
 
-        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
-        public ICommand OpenRecipeDetails { get; }
     }
 }

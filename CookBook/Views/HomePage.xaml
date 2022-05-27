@@ -36,26 +36,24 @@
             <CollectionView
                 ItemsSource="{Binding CategorySource}"
                 ItemsLayout="VerticalGrid, 2"
-                SelectionMode="Single"
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
+                SelectionMode="Single"
                 SelectedItem="{Binding SelectedRecipeCategory}"
                 SelectionChangedCommand="{Binding OpenListOfMeals}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:MealsCategoryViewModel">
                         <StackLayout>
-                            <ImageButton
+                            <Image
                                 Margin="5,0"
-                                CornerRadius="10"
                                 Background="black"
                                 Source="{Binding Image}"
-                                Padding="0"
                                 Opacity="0.9"
                                 Aspect="AspectFill"
                                 VerticalOptions="FillAndExpand"
                                 HeightRequest="188">
-                            </ImageButton>
+                            </Image>
                             <Label
                                 Text="{Binding Type}"
                                 FontSize="30"

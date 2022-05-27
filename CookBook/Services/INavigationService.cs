@@ -1,4 +1,4 @@
-﻿using CookBook.Models;
+﻿using CookBook.ViewModels;
 
 namespace CookBook.Services
 {
@@ -6,6 +6,6 @@ namespace CookBook.Services
     {
         void NavigateToListOfMeals(string category);
 
-        void NavigateToRecipeDetails(Recipe recipe);
+        void NavigateToRecipeDetails(RecipeItemViewModel recipe);
     }
 }
